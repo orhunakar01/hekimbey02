@@ -1,0 +1,33 @@
+{% extends 'dokumanlar/isyeriekle.html' %}
+
+
+{% block content %}
+
+
+{% load bootstrap %}
+{% load bootstrap4 %}       {# import bootstrap4/bootstrap3 #}
+{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+{{create19.media}} {# Tarih seçici gerekli JS ve CSS ekler #}
+
+
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+   <div class="form">
+       <br><br>
+       <div class="col">
+
+            {{create19 | bootstrap_horizontal:'col-lg-8'}}
+
+       </div>
+       <div>
+
+    <a href="{% url 'degerlendirme_view' %}"  type="submit" class="btn btn-primary">GERİ</a>
+    <button type="submit" class="btn btn-primary">KAYDET</button>
+</div>
+
+   </div>
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'evrakAdi/isyeriekle.html' %}
+
+
+{% block content %}
+
+
+{% load bootstrap %}
+{% load bootstrap4 %}       {# import bootstrap4/bootstrap3 #}
+{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+{{create3.media}} {# Tarih seçici gerekli JS ve CSS ekler #}
+
+
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+   <div class="form">
+       <br><br>
+       <div class="col">
+
+            {{create3 | bootstrap_horizontal:'col-lg-3'}}
+
+       </div>
+       <div>
+
+    <a href="{% url 'evrakadi_view' %}"  type="submit" class="btn btn-primary">GERİ</a>
+    <button type="submit" class="btn btn-primary">KAYDET</button>
+</div>
+
+   </div>
+
+</form>
+
+
+{% endblock %}

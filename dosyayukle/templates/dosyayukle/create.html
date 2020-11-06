@@ -1,0 +1,40 @@
+{% extends 'dosyayukle/isyeriekle.html' %}
+
+
+
+{% block content %}
+
+
+{% load bootstrap %}
+{% load bootstrap4 %}       {# import bootstrap4/bootstrap3 #}
+{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+{{create5.media}} {# Tarih seçici gerekli JS ve CSS ekler #}
+
+
+
+<form method="POST" enctype="multipart/form-data" >
+
+    {% csrf_token %}
+   <div class="form">
+       <br><br>
+       <div class="col">
+
+            {{create5 | bootstrap_horizontal:'col-lg-7'}}
+
+       </div>
+       <div>
+<br><br>
+    <a href="{% url 'dosyayukle_view' %}"  type="submit" class="btn btn-primary">GERİ</a>
+    <button type="submit" class="btn btn-primary">KAYDET</button>
+</div>
+
+   </div>
+
+
+
+
+
+</form>
+
+
+{% endblock %}

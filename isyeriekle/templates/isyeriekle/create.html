@@ -1,0 +1,31 @@
+{% extends 'isyeriekle/isyeriekle.html' %}
+
+
+{% block content %}
+{% load bootstrap %}
+{% load bootstrap4 %}       {# import bootstrap4/bootstrap3 #}
+{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+{{create.media}} {# Tarih seçici gerekli JS ve CSS ekler #}
+
+
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+   <div class="form">
+       <br><br>
+       <div class="col">
+
+            {{create|bootstrap_horizontal}}
+
+       </div>
+   </div>
+        <br>
+    <br>
+<div>
+
+    <a href="{% url 'isyeriekle_view' %}"  type="submit" class="btn btn-primary">GERİ</a>
+    <button type="submit" class="btn btn-primary">KAYDET</button>
+</div>
+</form>
+
+
+{% endblock %}
